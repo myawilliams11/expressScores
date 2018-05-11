@@ -13,6 +13,10 @@ app.get("/scores", function (req, res) {
         if (a.value>b.value){
             return a.value;
         }
+        // } else {
+        //     return b.value;
+        //     }
+        // }
     // return a.value - b.value; 
     // defining the route for get requests that use /scores
 })});
