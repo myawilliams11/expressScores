@@ -9,21 +9,22 @@ var scores = [{ name: "Erika", score: 9000 }, { name: "Edwin", score: 50 }, { na
 app.get("/scores", function (req, res) {
     // in express, req is always 200 unless you stat otherwise
     res.send(scores);
-    scores.sort(function (a,b) {
-        if (a.value>b.value){
-            return a.value;
-        }
+     
         // } else {
         //     return b.value;
         //     }
         // }
     // return a.value - b.value; 
     // defining the route for get requests that use /scores
-})});
+});
 
 app.post("/scores", function (req, res) {
     scores.push(req.body);
     res.status(201).end();
+    scores.sort((a,b) => (b.score - a.score));
+        // displays highest scores
+        scores.splice(3);
+        // shows 3 highest scores
     // res.send(combined);
     // defining the route for post request that use /scores
 });
